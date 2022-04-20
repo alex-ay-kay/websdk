@@ -28,6 +28,7 @@
     
     <script>
       dataLayer.push({'user_id': 'test@inbox.com'});
+      dataLayer.push({'event': 'login'});
     </script>
     
     <form action="" method="get" class="login-form">
@@ -36,7 +37,7 @@
         <input type="text" name="email" id="email" required>
       </div>
       <div class="login-form">
-        <input type="submit" value="Log In" onclick="dataLayer.push({'event': 'login'});">
+        <input type="submit" value="Log In">
       </div>
     </form>
     
