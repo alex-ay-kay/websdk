@@ -26,10 +26,11 @@
     
     <p>People WebSDK test site</p>
     
+    <!--
     <script>
-      window.dataLayer.push({'user_id': 'test@inbox.com'});
-      window.dataLayer.push({'event': 'login'});
+      window.dataLayer.push({'user_id': 'test@inbox.com', 'event': 'login'});
     </script>
+    -->
     
     <form action="" method="get" class="login-form">
       <div class="login-form">
@@ -37,7 +38,7 @@
         <input type="text" name="email" id="email" required>
       </div>
       <div class="login-form">
-        <input type="submit" value="Log In">
+        <input type="submit" value="Log In" onclick="window.dataLayer.push({'user_id': 'test@inbox.com', 'event': 'login'});">
       </div>
     </form>
     
