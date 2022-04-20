@@ -32,10 +32,9 @@
         <input type="text" name="usreml" id="name" required>
       </div>
       <div class="login-form">
-        <input type="submit" value="Log In">
+        <input type="submit" value="Log In" onclick="dataLayer.push({'event': 'login'});">
       </div>
     </form>
     
-    <button onclick="dataLayer.push({'event': 'login'});">Log in</button>
   </body>
 </html>
