@@ -25,19 +25,6 @@
     <!-- End Google Tag Manager (noscript) -->
     
     <p>People WebSDK test site</p>
-    
-    <script>
-      const onLoginFormSubmit = (evt) => {
-        evt.preventDefault();
-        const formData = new FormData(document.querySelector('.login-form'));
-        const formEmail = formData.get('email');
-        
-        window.dataLayer.push({'user_id': formEmail, 'event': 'login'});
-      };
-
-      const loginForm = document.querySelector('.login-form');
-      loginForm.addEventListener('submit', onLoginFormSubmit);
-    </script>
        
     <form action="" method="get" class="login-form">
       <div class="login-form">
@@ -49,5 +36,17 @@
       </div>
     </form>
     
+     <script>
+      const onLoginFormSubmit = (evt) => {
+        evt.preventDefault();
+        const formData = new FormData(document.querySelector('.login-form'));
+        const formEmail = formData.get('email');
+        
+        window.dataLayer.push({'user_id': formEmail, 'event': 'login'});
+      };
+
+      const loginForm = document.querySelector('.login-form');
+      loginForm.addEventListener('submit', onLoginFormSubmit);
+    </script>
   </body>
 </html>
