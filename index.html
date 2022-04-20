@@ -32,22 +32,9 @@
         <input type="text" name="email" id="email" required>
       </div>
       <div class="login-form">
-        <input type="submit" value="Log In">
+        <input type="submit" value="Log In" onclick="dataLayer.push({'user_id': 'test@inbox.com' });dataLayer.push({'event': 'login'});">
       </div>
     </form>
     
-    <script>
-      const onLoginFormSubmit = (evt) => {
-        evt.preventDefault();
-        const formData = new FormData(document.querySelector('form'));
-        const formEmail = formData.get('email');
-        dataLayer.push({'user_id': formEmail});
-        dataLayer.push({'event': 'login'});
-        // return pe.track('login'); // your custom event
-        });
-      };
-      const loginForm = document.querySelector('login-form');
-      loginForm.addEventListener('submit', onLoginFormSubmit);
-    </script>
   </body>
 </html>
