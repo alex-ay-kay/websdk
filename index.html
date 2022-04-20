@@ -29,13 +29,13 @@
     <script>
       const onLoginFormSubmit = (evt) => {
         evt.preventDefault();
-        const formData = new FormData(document.querySelector('login-form'));
+        const formData = new FormData(document.querySelector('.login-form'));
         const formEmail = formData.get('email');
         
         window.dataLayer.push({'user_id': formEmail, 'event': 'login'});
       };
 
-      const loginForm = document.querySelector('login-form');
+      const loginForm = document.querySelector('.login-form');
       loginForm.addEventListener('submit', onLoginFormSubmit);
     </script>
        
