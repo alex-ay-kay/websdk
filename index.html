@@ -34,16 +34,25 @@
       <div>
         <input type="submit" value="Log In">
       </div>
-      
+    </form>
+    
+    <form class="profile-form">
       <div>
-        <button type="button" value="Update profile">Update Profile</button>
+        <label for="property">Attribute Value: </label>
+        <input type="text" name="property" id="property" required>
       </div>
+      <div>
+        <input type="submit" value="Update profile">
+      </div>
+    </form>
+    
+     <form class="event-form">
        <div>
         <label for="product">Product Name: </label>
         <input type="text" name="product" id="product" required>
       </div>
       <div>
-        <button type="button" value="Send event">Send Event</button>
+        <input type="submit" value="Send event">
       </div>
     </form>
     
@@ -58,7 +67,7 @@
        
       const onSendClick = (evt) => {
         evt.preventDefault();
-        const formData = new FormData(document.querySelector('.login-form'));
+        const formData = new FormData(document.querySelector('.event-form'));
         const formProduct = formData.get('product');
         window.dataLayer.push({'product_name': formProduct, 'event': 'send_event'});
         console.log('Sent Event');
@@ -66,16 +75,18 @@
        
        const onUpdateClick = (evt) => {
         evt.preventDefault();
-        const formData = new FormData(document.querySelector('.login-form'));
+        const formData = new FormData(document.querySelector('.profile-form'));
         const formProp = formData.get('property');
-        window.dataLayer.push({'attr_value': formProduct, 'event': 'update_profile'});
+        window.dataLayer.push({'attr_value': formProp, 'event': 'update_profile'});
         console.log('Updated Profile');
       };
 
       const loginForm = document.querySelector('.login-form');
       loginForm.addEventListener('submit', onLoginFormSubmit);
-      loginForm.addEventListener('submit', onUpdateClick);
-      loginForm.addEventListener('submit', onSendClick);
+      const profileForm = document.querySelector('.profile-form');
+      profileForm.addEventListener('submit', onUpdateClick);
+      const sendForm = document.querySelector('.send-form');
+      sendForm.addEventListener('submit', onSendClick);
     </script>
     
    
