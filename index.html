@@ -44,7 +44,7 @@
     
      <script>
       const onLoginFormSubmit = (evt) => {
-        console.log(‘Submit occured’);
+        
         evt.preventDefault();
         const formData = new FormData(document.querySelector('.login-form'));
         const formEmail = formData.get('email');
@@ -54,6 +54,7 @@
 
       const loginForm = document.querySelector('.login-form');
       loginForm.addEventListener('submit', onLoginFormSubmit);
+      console.log(‘Submit occured’);
     </script>
     
    
