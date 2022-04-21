@@ -44,17 +44,33 @@
     
      <script>
       const onLoginFormSubmit = (evt) => {
-        
         evt.preventDefault();
         const formData = new FormData(document.querySelector('.login-form'));
         const formEmail = formData.get('email');
-        
         window.dataLayer.push({'user_id': formEmail, 'event': 'login'});
+        console.log('Logged In');
+      };
+       
+      const onSendClick = (evt) => {
+        evt.preventDefault();
+        const formData = new FormData(document.querySelector('.login-form'));
+        const formProduct = formData.get('product');
+        window.dataLayer.push({'product_name': formProduct, 'event': 'send_event'});
+        console.log('Sent Event');
+      };
+       
+       const onUpdateClick = (evt) => {
+        evt.preventDefault();
+        const formData = new FormData(document.querySelector('.login-form'));
+        const formProp = formData.get('property');
+        window.dataLayer.push({'attr_value': formProduct, 'event': 'update_profile'});
+        console.log('Updated Profile');
       };
 
       const loginForm = document.querySelector('.login-form');
       loginForm.addEventListener('submit', onLoginFormSubmit);
-      console.log('Submit occured');
+      loginForm.addEventListener('submit', onUpdateClick);
+      loginForm.addEventListener('submit', onSendClick);
     </script>
     
    
