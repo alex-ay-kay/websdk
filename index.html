@@ -60,6 +60,10 @@
         <input type="text" name="product" id="product" required>
       </div>
       <div>
+        <label for="qty">Quantity: </label>
+        <input type="text" name="qty" id="qty">
+      </div>
+      <div>
         <input type="submit" value="Send Event">
       </div>
     </form>
@@ -77,7 +81,8 @@
         evt.preventDefault();
         const formData = new FormData(document.querySelector('.event-form'));
         const formProduct = formData.get('product');
-        window.dataLayer.push({'product_name': formProduct, 'event': 'send_event'});
+        const formQty = formData('qty');
+        window.dataLayer.push({'product_name': formProduct, 'qty': formQty, 'event': 'send_event'});
         console.log('Sent Event');
       };
        
