@@ -51,14 +51,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </article>
   <script>
     (async () => {
-      // await pe.init('42ca637366d72e89ab8ff04b287fa8fc-a8b50b0c-e42a-43c2-8ab4-e972a9127a00');
-
       const user = getUser();
       const cart = getCart();
       if (user && user.email) {
+         window.dataLayer.push({'user_id': user.email, 'event': 'login'});
         // await pe.setPerson({ email: user.email });
       }
 
+      window.dataLayer.push({'total': cart.totalPrice, 'event': 'checkout'});
+      console.log('Checkout Completed');
+      
       // await pe.track('CompletedPurchase', { revenue: cart.totalPrice });
       removeCart();
     })();
