@@ -32,26 +32,26 @@
   </article>
   <script>
     (async () => {
-      await pe.init('42ca637366d72e89ab8ff04b287fa8fc-a8b50b0c-e42a-43c2-8ab4-e972a9127a00');
+      // await pe.init('42ca637366d72e89ab8ff04b287fa8fc-a8b50b0c-e42a-43c2-8ab4-e972a9127a00');
 
       const user = getUser();
       const cart = getCart();
       if (user && user.email) {
-        await pe.setPerson({ email: user.email });
+        // await pe.setPerson({ email: user.email });
       }
 
-      await pe.track('CompletedPurchase', { revenue: cart.totalPrice });
+      // await pe.track('CompletedPurchase', { revenue: cart.totalPrice });
       removeCart();
     })();
 
     async function exit() {
-      await pe.forgetPerson();
+      // await pe.forgetPerson();
       removeUser();
-      window.location = './shop.html';
+      window.location = './index.html';
     }
 
     function backToShopping() {
-      window.location = './shop.html';
+      window.location = './index.html';
     }
   </script>
 </body>
