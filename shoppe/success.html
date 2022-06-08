@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<title>Magic Shop. Success</title>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta content="utf-8" http-equiv="encoding" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript" src="utils.js"></script>
+  <script src="../src/load.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="fake-counter"></div>
+    <a class="delink" href="./shop.html">
+      <h1>Magic shop</h1>
+    </a>
+    <div class="counter"></div>
+  </header>
+  <article class="thanks-content">
+    <div class="thanks-first">Thank you for everything!</div>
+    <div class="thanks-second">You are welcome any time.</div>
+    <div class="thanks-back">
+      <button type="button" onclick="backToShopping()">
+        Back to Shopping
+      </button>
+      <button type="button" onclick="exit()">
+        Exit
+      </button>
+    </div>
+  </article>
+  <script>
+    (async () => {
+      await pe.init('42ca637366d72e89ab8ff04b287fa8fc-a8b50b0c-e42a-43c2-8ab4-e972a9127a00');
+
+      const user = getUser();
+      const cart = getCart();
+      if (user && user.email) {
+        await pe.setPerson({ email: user.email });
+      }
+
+      await pe.track('CompletedPurchase', { revenue: cart.totalPrice });
+      removeCart();
+    })();
+
+    async function exit() {
+      await pe.forgetPerson();
+      removeUser();
+      window.location = './shop.html';
+    }
+
+    function backToShopping() {
+      window.location = './shop.html';
+    }
+  </script>
+</body>
+
+</html>

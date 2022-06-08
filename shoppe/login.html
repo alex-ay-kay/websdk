@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<title>Magic Shop. Register</title>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta content="utf-8" http-equiv="encoding" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript" src="utils.js"></script>
+  <script src="../src/load.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="fake-counter"></div>
+    <h1>Magic shop</h1>
+    <div class="counter" id="counter"></div>
+  </header>
+  <article class="register-content" id="registration">
+    <div class="field-container">
+      <div class="field">Email:</div>
+      <input class="input" id="email" />
+    </div>
+    <button class="button-register" onclick="login()" type="button">Register</button>
+  </article>
+  <script>
+    async function login() {
+      const email = document.getElementById('email').value;
+      
+      const person = {
+        email,
+      };
+      
+      saveUser(person);
+      await pe.setPerson({ email });
+      await pe.track('demoLogin');
+      
+      setTimeout(() => { window.location = './shop.html' }, 3000);
+    }
+
+    (async () => {
+      await pe.init('42ca637366d72e89ab8ff04b287fa8fc-a8b50b0c-e42a-43c2-8ab4-e972a9127a00');
+    })();
+  </script>
+</body>
+
+</html>
