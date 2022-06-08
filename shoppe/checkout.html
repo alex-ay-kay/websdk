@@ -48,7 +48,7 @@
   </article>
   <script>
     (async () => {
-      await pe.init('42ca637366d72e89ab8ff04b287fa8fc-a8b50b0c-e42a-43c2-8ab4-e972a9127a00');
+      // await pe.init('42ca637366d72e89ab8ff04b287fa8fc-a8b50b0c-e42a-43c2-8ab4-e972a9127a00');
 
       updateCartView('cart');
       const cart = getCart();
@@ -78,7 +78,7 @@
     })()
 
     async function pay() {
-      await pe.track('CompletedPurchase', { revenue: 100 });
+      // await pe.track('CompletedPurchase', { revenue: 100 });
       setTimeout(() => window.location = './success.html', 3000); 
     }
   </script>
