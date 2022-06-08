@@ -94,6 +94,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       const user = getUser();
       if (user && user.email) {
+          window.dataLayer.push({'event': 'add_to_cart'});
+          console.log('Item Added to Cart');
         // await pe.track('addtocart', { item: itemName, price: price, quantity: 1 });
       } else {
         // await pe.track('demoViewItem', { itemCategory: 'test', itemPrice: price, itemName });
@@ -101,14 +103,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     async function logout() {
-      // await pe.forgetPerson();
+      window.dataLayer.push({'event': 'logout'});
+      console.log('User Logged Out');
       removeUser();
       window.location = './';
     }
 
     (async () => {
-      // await pe.init('42ca637366d72e89ab8ff04b287fa8fc-a8b50b0c-e42a-43c2-8ab4-e972a9127a00');-->
-
       const registrationLink = document.querySelector('.delink-registration');
       const loginLink = document.querySelector('.delink-login');
       const logoutLink =  document.querySelector('.delink-logout');
