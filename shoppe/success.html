@@ -64,7 +64,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })();
 
     async function exit() {
-      window.dataLayer.push({'event': 'logout'});
+      window.dataLayer.push({'user_id': '','event': 'logout'});
       console.log('User Logged Out');
       removeUser();
       window.location = './';
