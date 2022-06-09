@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Magic!</title>
+<title>Top Hat</title>
 
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
@@ -44,22 +44,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ornare mi, et lobortis nulla mi vitae lectus. Integer pellentesque sagittis eros vitae placerat. Aliquam eget
         vulputate erat. Vivamus accumsan tincidunt varius. Suspendisse lacinia nec mauris a finibus. Etiam justo sem,
         egestas vitae tortor vitae, sodales malesuada nisl.</div>
-      <button class="product-button-add" type="button" onclick="addToCart('tophat', 10)">
+      <button class="product-button-add" type="button" onclick="addToCart('tophat', 52)">
         Add to cart
       </button>
     </div>
   </article>
   <script>
     const user = getUser();
-    // pe.setPerson({ email: user.email });
-    // pe.track('itemview', { item: 'tophat' });
+    if (user && user.email) {
+         window.dataLayer.push({'user_id': user.email, 'event': 'login'});
+     }
 
     updateCartView('cart');
 
     function addToCart(itemName, price) {
       addItemToCart(itemName, price);
       updateCartView('cart');
-      // pe.track('addtocart', { item: itemName, price: price, quantity: 1 });
+      window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
+      console.log('Item Added to Cart');
     }
   </script>
 </body>
