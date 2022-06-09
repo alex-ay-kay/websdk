@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Magic!</title>
+<title>Fedora</title>
 
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
@@ -38,7 +38,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="product-image-container"><img class="product-image" src="../images/hat04.jpg" alt="fedora" /></div>
     <div class="product-details">
       <div class="product-name">Fur Felt Fedora</div>
-      <div class="product-price">$4</div>
+      <div class="product-price">$41</div>
       <div class="product-description">Crushable Fur-Felt. This most of iconic of all 20th Century hats sports
         double-front creases and cut rim. You will be entranced by the superb quality unlined fur-felt body ,that
         magically retains it s shape,whatever the challenge.</div>
@@ -48,17 +48,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </article>
   
-  <script>
+   <script>
     const user = getUser();
-    // pe.setPerson({ email: user.email });
-    // pe.track('itemview', { item: 'fedora' });
+    if (user && user.email) {
+         window.dataLayer.push({'user_id': user.email, 'event': 'login'});
+     }
 
     updateCartView('cart');
 
     function addToCart(itemName, price) {
       addItemToCart(itemName, price);
       updateCartView('cart');
-      // pe.track('addtocart', { item: itemName, price: price, quantity: 1 });
+      window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
+      console.log('Item Added to Cart');
     }
   </script>
 </body>
