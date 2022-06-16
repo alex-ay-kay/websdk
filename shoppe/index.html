@@ -10,27 +10,26 @@
   <link rel="stylesheet" href="styles.css" />
   
   <!-- Un-comment the block to enable Google Tag Manager Data Layer
-  <!-- GTM Datalayer init -->
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  </script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    </script>
   -->
   
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W8VSX4T');</script>
-<!-- End Google Tag Manager -->
-</head>
+ <!-- Un-comment the block to enable Google Tag Manager  and replace the GTM id with your own
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W8VSX4T');</script>
+  </head>
+-->
 
 <body>
   
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VSX4T"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- Un-comment the block to enable Google Tag Manager and replace the GTM id with your own
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VSX4T"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
   
   <header class="header">
     <nav>
@@ -96,16 +95,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       const user = getUser();
       if (user && user.email) {
+          <!-- Trigger the Add to Cart event and pass product details as GTM variables
           window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
+          -->
           console.log('Item Added to Cart');
-        // await pe.track('addtocart', { item: itemName, price: price, quantity: 1 });
-      } else {
-        // await pe.track('demoViewItem', { itemCategory: 'test', itemPrice: price, itemName });
-      }
+      } 
     }
 
     async function logout() {
+      <!-- Trigger the Logout event
       window.dataLayer.push({'user_id': '','event': 'logout'});
+      -->
       console.log('User Logged Out');
       removeUser();
       
