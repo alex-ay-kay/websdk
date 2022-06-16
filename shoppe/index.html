@@ -95,17 +95,15 @@
 
       const user = getUser();
       if (user && user.email) {
-          <!-- Trigger the Add to Cart event and pass product details as GTM variables
-          window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
-          -->
+          // Trigger the Add to Cart event and pass product details as GTM variables
+          // window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
           console.log('Item Added to Cart');
       } 
     }
 
     async function logout() {
-      <!-- Trigger the Logout event
-      window.dataLayer.push({'user_id': '','event': 'logout'});
-      -->
+      // Trigger the Logout event
+      // window.dataLayer.push({'user_id': '','event': 'logout'});
       console.log('User Logged Out');
       removeUser();
       
