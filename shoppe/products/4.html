@@ -8,22 +8,28 @@
   <link rel="stylesheet" href="../styles.css" />
   <script type="text/javascript" src="../utils.js"></script>
   
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W8VSX4T');</script>
-<!-- End Google Tag Manager -->
+<!-- Un-comment the block to enable Google Tag Manager Data Layer
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    </script>
+  -->
+  
+   <!-- Un-comment the block to enable Google Tag Manager  and replace the GTM id with your own
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W8VSX4T');</script>
+  -->
   
 </head>
 
 <body>
   
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VSX4T"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+ <!-- Un-comment the block to enable Google Tag Manager and replace the GTM id with your own
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VSX4T"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
   
   <header class="header">
     <div class="fake-counter"></div>
@@ -51,17 +57,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    <script>
     const user = getUser();
     if (user && user.email) {
-         window.dataLayer.push({'user_id': user.email, 'event': 'login'});
+         // Set the People profile for the current user
+         // window.dataLayer.push({'user_id': user.email, 'event': 'login'});
      }
 
-    window.dataLayer.push({'product_name': 'Fedora', 'event': 'product_view'});
+    // Trigger the Product Viewed event, passing the product name in a GTM variable
+    // window.dataLayer.push({'product_name': 'Fedora', 'event': 'product_view'});
      
     updateCartView('cart');
 
     function addToCart(itemName, price) {
       addItemToCart(itemName, price);
       updateCartView('cart');
-      window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
+      
+      // Trigger the Add to Cart event passing the product details in GTM variables
+      // window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
+      
       console.log('Item Added to Cart');
     }
   </script>
